@@ -1,4 +1,5 @@
-﻿using System;
+﻿        // VAI SAIR DEPOIS QUE ESTA TELA SE COMUNICAR COM BLL E DTO
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CriaBD_Crud.Modelos;
+using DAL;
 
 namespace CriaBD_Crud
 {
@@ -37,12 +40,20 @@ namespace CriaBD_Crud
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            using (frmContato f = new frmContato())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-
+            using (frmConsulta f = new frmConsulta())
+            {
+                this.Hide();
+                f.ShowDialog();
+            }
+            this.Show();
         }
 
         private void btnVisualizarTudo_Click(object sender, EventArgs e)
@@ -98,6 +109,14 @@ namespace CriaBD_Crud
 
             gestor.EXE_NON_QUERY(query, parametros);
             MessageBox.Show("registrou");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using(Modelo_Cadastro f = new Modelo_Cadastro())
+            {
+                f.ShowDialog();
+            }
         }
     }
 }

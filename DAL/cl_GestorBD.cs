@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 // Versão 1.0.0
 // 01/08/2020
 //==============================================================================================================
-namespace CriaBD_Crud
+namespace DAL
 {
     public class cl_GestorBD
     {
@@ -140,7 +140,7 @@ namespace CriaBD_Crud
                         //criando as tabelas
                         Cmd.CommandText = "USE teste; " +
                                           "CREATE TABLE contatos(" +
-                                                                 "id_contato         INT NOT NULL PRIMARY KEY," +
+                                                                 "id_contato         INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
                                                                  "nome               VARCHAR(50) NOT NULL," +
                                                                  "telefone           VARCHAR(15)," +
                                                                  "atualizacao        DATETIME);";
@@ -159,6 +159,8 @@ namespace CriaBD_Crud
         }
         #endregion
 
+
+        //===============================================================================================
         /// <summary>
         /// parametros = null permite não definir na query(ex: caso seja query  = select *from clientes...sem WHERE
         /// </summary>
@@ -238,8 +240,10 @@ namespace CriaBD_Crud
                      */
 
                     Cmd.ExecuteNonQuery();
+                    
                     //===================
                     Transacao.Commit();
+                    parametros[0].Valor = Cmd.LastInsertedId;
                     //===================
 
                 }
