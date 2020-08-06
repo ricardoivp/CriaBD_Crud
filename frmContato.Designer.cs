@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -53,6 +54,7 @@
             // 
             // pnDados
             // 
+            this.pnDados.Controls.Add(this.label4);
             this.pnDados.Controls.Add(this.lbl_idContato);
             this.pnDados.Controls.Add(this.label3);
             this.pnDados.Controls.Add(this.txtTelefone);
@@ -87,13 +89,13 @@
             // lbl_idContato
             // 
             this.lbl_idContato.AutoSize = true;
-            this.lbl_idContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_idContato.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbl_idContato.Location = new System.Drawing.Point(66, 92);
+            this.lbl_idContato.Location = new System.Drawing.Point(115, 91);
             this.lbl_idContato.Name = "lbl_idContato";
-            this.lbl_idContato.Size = new System.Drawing.Size(157, 20);
+            this.lbl_idContato.Size = new System.Drawing.Size(44, 17);
             this.lbl_idContato.TabIndex = 12;
-            this.lbl_idContato.Text = "lbl Id Contato: 000";
+            this.lbl_idContato.Text = "0000";
             this.lbl_idContato.Visible = false;
             // 
             // label3
@@ -140,6 +142,17 @@
             this.txtNome.Size = new System.Drawing.Size(373, 20);
             this.txtNome.TabIndex = 7;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label4.Location = new System.Drawing.Point(67, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Id nº: ";
+            // 
             // frmContato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,5 +178,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -1,4 +1,4 @@
-﻿        // VAI SAIR DEPOIS QUE ESTA TELA SE COMUNICAR COM BLL E DTO
+﻿// VAI SAIR DEPOIS QUE ESTA TELA SE COMUNICAR COM BLL E DTO
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,7 +90,7 @@ namespace CriaBD_Crud
             int idNovoContato = -1;
             if (txtNome.Text == "" || txtTelefone.Text == "")
             {
-                MessageBox.Show("Os dados devem estar todos preenchidos","ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Os dados devem estar todos preenchidos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             cl_GestorBD gestor = new cl_GestorBD("teste");
 
@@ -113,7 +113,7 @@ namespace CriaBD_Crud
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using(Modelo_Cadastro f = new Modelo_Cadastro())
+            using (Modelo_Cadastro f = new Modelo_Cadastro())
             {
                 f.ShowDialog();
             }

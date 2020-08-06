@@ -30,11 +30,11 @@
         {
             this.dgvContato = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.rbNome = new System.Windows.Forms.RadioButton();
             this.boxOpConsulta = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rbTelefone = new System.Windows.Forms.RadioButton();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblTotalLinhas = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
@@ -61,6 +61,7 @@
             this.dgvContato.Size = new System.Drawing.Size(480, 187);
             this.dgvContato.StandardTab = true;
             this.dgvContato.TabIndex = 0;
+            this.dgvContato.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContato_CellDoubleClick);
             // 
             // label1
             // 
@@ -71,30 +72,32 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Pesquisar";
             // 
-            // button1
+            // btnPesquisar
             // 
-            this.button1.Location = new System.Drawing.Point(218, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(274, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Location = new System.Drawing.Point(218, 64);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(274, 23);
+            this.btnPesquisar.TabIndex = 2;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // radioButton1
+            // rbNome
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 17);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbNome.AutoSize = true;
+            this.rbNome.Location = new System.Drawing.Point(6, 17);
+            this.rbNome.Name = "rbNome";
+            this.rbNome.Size = new System.Drawing.Size(53, 17);
+            this.rbNome.TabIndex = 3;
+            this.rbNome.TabStop = true;
+            this.rbNome.Text = "Nome";
+            this.rbNome.UseVisualStyleBackColor = true;
+            this.rbNome.CheckedChanged += new System.EventHandler(this.rbNome_CheckedChanged);
             // 
             // boxOpConsulta
             // 
-            this.boxOpConsulta.Controls.Add(this.radioButton2);
-            this.boxOpConsulta.Controls.Add(this.radioButton1);
+            this.boxOpConsulta.Controls.Add(this.rbTelefone);
+            this.boxOpConsulta.Controls.Add(this.rbNome);
             this.boxOpConsulta.Location = new System.Drawing.Point(12, 22);
             this.boxOpConsulta.Name = "boxOpConsulta";
             this.boxOpConsulta.Size = new System.Drawing.Size(200, 65);
@@ -102,23 +105,24 @@
             this.boxOpConsulta.TabStop = false;
             this.boxOpConsulta.Text = "Opções de Consulta";
             // 
-            // radioButton2
+            // rbTelefone
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 40);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbTelefone.AutoSize = true;
+            this.rbTelefone.Location = new System.Drawing.Point(6, 40);
+            this.rbTelefone.Name = "rbTelefone";
+            this.rbTelefone.Size = new System.Drawing.Size(67, 17);
+            this.rbTelefone.TabIndex = 4;
+            this.rbTelefone.TabStop = true;
+            this.rbTelefone.Text = "Telefone";
+            this.rbTelefone.UseVisualStyleBackColor = true;
+            this.rbTelefone.CheckedChanged += new System.EventHandler(this.rbTelefone_CheckedChanged);
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtPesquisa.Location = new System.Drawing.Point(218, 38);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(274, 20);
+            this.txtPesquisa.TabIndex = 5;
             // 
             // lblTotalLinhas
             // 
@@ -132,7 +136,7 @@
             // 
             // btnFechar
             // 
-            this.btnFechar.Location = new System.Drawing.Point(256, 288);
+            this.btnFechar.Location = new System.Drawing.Point(246, 288);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(246, 33);
             this.btnFechar.TabIndex = 7;
@@ -148,9 +152,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.lblTotalLinhas);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.boxOpConsulta);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvContato);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -172,11 +176,11 @@
 
         private System.Windows.Forms.DataGridView dgvContato;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.GroupBox boxOpConsulta;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton rbTelefone;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label lblTotalLinhas;
         private System.Windows.Forms.Button btnFechar;
     }
