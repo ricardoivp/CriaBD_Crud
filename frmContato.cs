@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -22,13 +23,14 @@ namespace CriaBD_Crud
 
         public void LimpaTela()
         {
-            List<Control> LimpaCampos = new List<Control>() { txtNome, txtTelefone };
+            List<Control> LimpaCampos = new List<Control>() { txtNome, txtTelefone, lbl_idContato };
 
             foreach (Control campo in LimpaCampos)
             {
                 campo.Text = "";
             }
             txtNome.Focus();
+            lbl_idContato.Visible = false;
         }
         public frmContato()
         {
@@ -104,36 +106,68 @@ namespace CriaBD_Crud
             {
                 this.Hide();
                 f.ShowDialog();
-                if (f.codLinha > 0) { idContato = f.codLinha; }
+                idContato = f.codLinha;
                 
             }
             this.Show();
+
+            if (idContato > 0) 
+            {
+                List<cl_GestorBD.SQLParametro> parametros = new List<cl_GestorBD.SQLParametro>();
+                parametros.Add(new cl_GestorBD.SQLParametro("@idContato", idContato));
+                query = "SELECT *FROM contatos WHERE  id_contato = @idContato";
+                DTOContato = new DTOContato();
+                BLLContato BLLContato = new BLLContato();
+
+                DTOContato = BLLContato.CarregaContato(query, parametros);
+
+                // Preenchendo as TextBox
+                lbl_idContato.Visible = true;
+                lbl_idContato.Text = DTOContato.IdContato.ToString();
+                txtNome.Text = DTOContato.Nome;
+                txtTelefone.Text = DTOContato.Telefone;
+                AlteraBotoes(3);
+            }
+            else { return; }
             
-            List<cl_GestorBD.SQLParametro> parametros = new List<cl_GestorBD.SQLParametro>();
-            parametros.Add(new cl_GestorBD.SQLParametro("@idContato", idContato));
-            query = "SELECT *FROM contatos WHERE  id_contato = @idContato";
-            DTOContato = new DTOContato();
-            BLLContato BLLContato = new BLLContato();
-
-            DTOContato = BLLContato.CarregaContato(query, parametros);
-
-            // Preenchendo as TextBox
-            lbl_idContato.Visible = true;
-            lbl_idContato.Text = DTOContato.IdContato.ToString();
-            txtNome.Text = DTOContato.Nome;
-            txtTelefone.Text = DTOContato.Telefone;
-            AlteraBotoes(3);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
 
+            if(MessageBox.Show("Deseja excluir este contato?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                param = new List<cl_GestorBD.SQLParametro>() { new cl_GestorBD.SQLParametro("@idcontato", DTOContato.IdContato) };
+                query = "DELETE FROM contatos WHERE id_contato = @idcontato";
+                BLLContato = new BLLContato();
+                BLLContato.Excluir(query, param);
+                MessageBox.Show("Cadastro nº " + DTOContato.IdContato + " excluído com sucesso", "EXCLUSÃO DE CONTATO");
+                LimpaTela();
+                AlteraBotoes(1);
+            }
+            else
+            {
+                return;
+            }
+
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             //fazer pergunta se quer sair (FALTA FAZER)
-            AlteraBotoes(1);
+            if (MessageBox.Show("Deseja cancelar o preenchimento do formulário? \nIsso irá apagar todas as informações digitadas !!!", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                LimpaTela();
+                AlteraBotoes(1);
+                txtNome.Focus();
+            }
+            else
+            {
+                txtNome.Focus();
+                return;
+            }
+            
         }
 
         private void btnSair_Click(object sender, EventArgs e)

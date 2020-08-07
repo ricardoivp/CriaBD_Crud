@@ -56,11 +56,6 @@ namespace CriaBD_Crud
             this.Show();
         }
 
-        private void btnVisualizarTudo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnZeraBD_Click(object sender, EventArgs e)
         {
             cl_GestorBD gestor = new cl_GestorBD("teste");
@@ -109,14 +104,6 @@ namespace CriaBD_Crud
 
             gestor.EXE_NON_QUERY(query, parametros);
             MessageBox.Show("registrou");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (Modelo_Cadastro f = new Modelo_Cadastro())
-            {
-                f.ShowDialog();
-            }
         }
     }
 }

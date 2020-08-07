@@ -61,9 +61,10 @@ namespace BLL
 
             gestor.EXE_NON_QUERY(query, parametros);
         }
-        public void Excluir(int idContato)
+        public void Excluir(string query, List<cl_GestorBD.SQLParametro> parametros)
         {
-
+            gestor = new cl_GestorBD("teste");
+            gestor.EXE_NON_QUERY(query, parametros);
         }
 
         public DataTable Localizar(string query, List<cl_GestorBD.SQLParametro> parametros = null)

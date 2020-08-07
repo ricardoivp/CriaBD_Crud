@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnVisualizarTudo = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -45,23 +44,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnVisualizarTudo
-            // 
-            this.btnVisualizarTudo.Location = new System.Drawing.Point(85, 68);
-            this.btnVisualizarTudo.Name = "btnVisualizarTudo";
-            this.btnVisualizarTudo.Size = new System.Drawing.Size(177, 67);
-            this.btnVisualizarTudo.TabIndex = 0;
-            this.btnVisualizarTudo.Text = "Visualizar Tudo";
-            this.btnVisualizarTudo.UseVisualStyleBackColor = true;
-            this.btnVisualizarTudo.Click += new System.EventHandler(this.btnVisualizarTudo_Click);
-            // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(85, 141);
+            this.btnAdicionar.Location = new System.Drawing.Point(85, 81);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(177, 67);
             this.btnAdicionar.TabIndex = 1;
@@ -71,7 +59,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(85, 214);
+            this.btnPesquisar.Location = new System.Drawing.Point(85, 179);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(177, 67);
             this.btnPesquisar.TabIndex = 2;
@@ -81,7 +69,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(85, 287);
+            this.btnSair.Location = new System.Drawing.Point(85, 277);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(177, 67);
             this.btnSair.TabIndex = 3;
@@ -214,22 +202,11 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Inserção buscando ID_disponivel manualmente";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(497, 404);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Abre Modelo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 429);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnZeraBD);
             this.Controls.Add(this.lblVersao);
@@ -237,7 +214,6 @@
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.btnVisualizarTudo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -251,8 +227,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVisualizarTudo;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnSair;
@@ -269,7 +243,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
     }
 }
 
